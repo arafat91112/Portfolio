@@ -56,7 +56,7 @@
         /* Section Styling */
         section {
             padding: 20px 10%;
-            margin-top: 10px; /* Reduced from 30px */
+            margin-top: 10px;
         }
 
         section h2 {
@@ -71,7 +71,7 @@
         #about {
             display: flex;
             align-items: center;
-            gap: 10px; /* Reduced from 30px */
+            gap: 10px;
             background-color: #fff;
             padding: 40px;
             border-radius: 10px;
@@ -80,9 +80,9 @@
 
         .photo-frame {
             position: relative;
-            width: 30%; /* Responsive width */
-            max-width: 300px; /* Maximum width */
-            aspect-ratio: 3 / 4; /* Maintain proportion */
+            width: 30%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -91,7 +91,7 @@
         .photo-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Fully covers the frame without stretching */
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
@@ -159,7 +159,7 @@
         .research-item, .project-item {
             background-color: #fff;
             padding: 20px;
-            margin-bottom: 8px; /* Reduced from 20px */
+            margin-bottom: 8px;
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -172,9 +172,9 @@
         /* Variable Figure Grid */
         .figure-grid {
             display: grid;
-            grid-template-columns: repeat(var(--columns, 3), 1fr); /* Default to 3 columns */
-            grid-template-rows: repeat(var(--rows, 2), auto); /* Default to 2 rows */
-            gap: 4px; /* Reduced from 10px */
+            grid-template-columns: repeat(var(--columns, 3), 1fr);
+            grid-template-rows: repeat(var(--rows, 2), auto);
+            gap: 4px;
             margin: 10px 0;
         }
 
@@ -196,8 +196,8 @@
         .figure-container img {
             width: 100%;
             height: auto;
-            aspect-ratio: 4 / 3; /* Maintain proportion for grid images */
-            object-fit: cover; /* Fully covers the frame without stretching */
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
             border-radius: 4px;
         }
 
@@ -232,6 +232,74 @@
 
         #contact a:hover {
             text-decoration: underline;
+        }
+
+        /* Visitor Counter Section */
+        #visitor-counter {
+            text-align: center;
+            padding: 20px 10%;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        #visitor-counter h3 {
+            color: #2e4f3d;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        #visitor-counter p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Country Graph Section */
+        #country-graph {
+            padding: 20px 10%;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        #country-graph h3 {
+            color: #2e4f3d;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .country-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .country-label {
+            width: 150px;
+            font-weight: bold;
+            color: #2e4f3d;
+        }
+
+        .bar-container {
+            flex: 1;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 20px;
+            background-color: #2e4f3d;
+            transition: width 1s ease-in-out;
+        }
+
+        .bar-value {
+            width: 50px;
+            text-align: right;
+            margin-left: 10px;
+            color: #333;
         }
 
         /* Footer Section */
@@ -276,12 +344,20 @@
             }
 
             .figure-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-                grid-template-rows: auto; /* Allow rows to adjust */
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
             }
 
             .figure-container img {
                 aspect-ratio: 4 / 3;
+            }
+
+            .country-label {
+                width: 100px;
+            }
+
+            .bar {
+                height: 15px;
             }
         }
 
@@ -291,7 +367,16 @@
             }
 
             .figure-grid {
-                grid-template-columns: 1fr; /* 1 column on very small screens */
+                grid-template-columns: 1fr;
+            }
+
+            .country-label {
+                width: 80px;
+                font-size: 0.9em;
+            }
+
+            .bar-value {
+                font-size: 0.9em;
             }
         }
     </style>
@@ -315,7 +400,6 @@
     <!-- About Section -->
     <section id="about">
         <div class="photo-frame">
-            <!-- Replace the src with your photo URL -->
             <img src="https://via.placeholder.com/300x400?text=Your+Photo+Here" alt="Md. Arafat Jamil">
         </div>
         <div class="about-text">
@@ -363,7 +447,6 @@
             <h3>BIM-Integrated Safety Monitoring System</h3>
             <p><strong>Duration:</strong> January 2022 - December 2022</p>
             <p><strong>Description:</strong> Developed a cloud-based system to monitor construction safety using BIM and GPS technologies. The system alerts personnel of potential hazards in real-time.</p>
-            <!-- 3x2 grid (default) -->
             <div class="figure-grid" data-columns="3" data-rows="2">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="System Architecture">
@@ -395,7 +478,6 @@
             <h3>Construction Safety in Confined Spaces</h3>
             <p><strong>Duration:</strong> July 2021 - December 2021</p>
             <p><strong>Description:</strong> Designed a sensor-based framework for monitoring air quality and worker safety in confined spaces using BIM integration.</p>
-            <!-- Example: 2x3 grid -->
             <div class="figure-grid" data-columns="2" data-rows="3">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sensor Circuit">
@@ -427,7 +509,6 @@
             <h3>Review of AI in Construction Management</h3>
             <p><strong>Duration:</strong> January 2021 - June 2021</p>
             <p><strong>Description:</strong> Conducted a comprehensive review of AI applications in construction management, focusing on automation and safety.</p>
-            <!-- Example: 4x2 grid -->
             <div class="figure-grid" data-columns="4" data-rows="2">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Trends">
@@ -464,7 +545,6 @@
             <h3>BIM-Based Building Code Compliance Checker</h3>
             <p><strong>Year:</strong> 2023</p>
             <p><strong>Description:</strong> Developed a web framework to automate building code compliance checks using BIM and IFC files.</p>
-            <!-- 3x2 grid (default) -->
             <div class="figure-grid" data-columns="3" data-rows="2">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1558403194-611308249627?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Interface">
@@ -496,7 +576,6 @@
             <h3>Structural Health Monitoring Implementation</h3>
             <p><strong>Year:</strong> 2020</p>
             <p><strong>Description:</strong> Applied structural health monitoring tools to assess building safety and identify concrete cracks.</p>
-            <!-- Example: 2x3 grid -->
             <div class="figure-grid" data-columns="2" data-rows="3">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crack Detection">
@@ -528,7 +607,6 @@
             <h3>10-Story Residential Building Design</h3>
             <p><strong>Year:</strong> 2019</p>
             <p><strong>Description:</strong> Designed a 10-story residential building using ETABS, comparing manual and software-based lateral force calculations.</p>
-            <!-- Example: 4x2 grid -->
             <div class="figure-grid" data-columns="4" data-rows="2">
                 <div class="figure-container">
                     <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Design Model">
@@ -619,12 +697,58 @@
         <p>Address: Arambag, Chapainawabgonj Sadar, Chapainawabgonj-6300, Bangladesh</p>
     </section>
 
+    <!-- Country Graph Section -->
+    <section id="country-graph">
+        <h3>Visitor Countries</h3>
+        <div class="country-bar">
+            <div class="country-label">Bangladesh</div>
+            <div class="bar-container">
+                <div class="bar" style="width: 70%;"></div>
+            </div>
+            <div class="bar-value">210</div>
+        </div>
+        <div class="country-bar">
+            <div class="country-label">USA</div>
+            <div class="bar-container">
+                <div class="bar" style="width: 50%;"></div>
+            </div>
+            <div class="bar-value">150</div>
+        </div>
+        <div class="country-bar">
+            <div class="country-label">India</div>
+            <div class="bar-container">
+                <div class="bar" style="width: 40%;"></div>
+            </div>
+            <div class="bar-value">120</div>
+        </div>
+        <div class="country-bar">
+            <div class="country-label">UK</div>
+            <div class="bar-container">
+                <div class="bar" style="width: 30%;"></div>
+            </div>
+            <div class="bar-value">90</div>
+        </div>
+        <div class="country-bar">
+            <div class="country-label">Canada</div>
+            <div class="bar-container">
+                <div class="bar" style="width: 20%;"></div>
+            </div>
+            <div class="bar-value">60</div>
+        </div>
+    </section>
+
+    <!-- Visitor Counter Section -->
+    <section id="visitor-counter">
+        <h3>Total Visitors</h3>
+        <p id="visit-count">0</p>
+    </section>
+
     <!-- Footer with All Rights Reserved -->
     <footer>
         <p>© 2025 Md. Arafat Jamil. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Smooth Scroll and Dynamic Grid -->
+    <!-- JavaScript for Smooth Scroll, Dynamic Grid, and Visitor Counter -->
     <script>
         // Smooth Scroll
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -641,11 +765,23 @@
 
         // Dynamic Figure Grid Setup
         document.querySelectorAll('.figure-grid').forEach(grid => {
-            const columns = grid.getAttribute('data-columns') || 3; // Default to 3 columns
-            const rows = grid.getAttribute('data-rows') || 2; // Default to 2 rows
+            const columns = grid.getAttribute('data-columns') || 3;
+            const rows = grid.getAttribute('data-rows') || 2;
             grid.style.setProperty('--columns', columns);
             grid.style.setProperty('--rows', rows);
         });
+
+        // Visitor Counter
+        const visitCountElement = document.getElementById('visit-count');
+        let visitCount = localStorage.getItem('page_visits');
+        
+        if (!visitCount) {
+            visitCount = 0;
+        }
+        
+        visitCount = parseInt(visitCount) + 1;
+        localStorage.setItem('page_visits', visitCount);
+        visitCountElement.textContent = visitCount;
     </script>
 </body>
 </html>
