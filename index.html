@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Arafat Jamil | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2e4f3d; /* Earthy forest green */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #e8d5b5; /* Sandstone beige */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f5f5f5; /* Light hover effect */
+            border-bottom: 2px solid #e8d5b5;
+            padding-bottom: 2px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 20px 10%;
+            margin-top: 10px; /* Reduced from 30px */
+        }
+
+        section h2 {
+            color: #2e4f3d;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e8d5b5;
+            padding-bottom: 10px;
+        }
+
+        /* About Section */
+        #about {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Reduced from 30px */
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 30%; /* Responsive width */
+            max-width: 300px; /* Maximum width */
+            aspect-ratio: 3 / 4; /* Maintain proportion */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fully covers the frame without stretching */
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2e4f3d, #e8d5b5);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        /* Scrollable News and Updates Section */
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8d5b5;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item span {
+            font-weight: bold;
+            color: #2e4f3d;
+            min-width: 120px;
+        }
+
+        .news-item p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Research and Projects Sections */
+        .research-item, .project-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 8px; /* Reduced from 20px */
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-item h3, .project-item h3 {
+            color: #2e4f3d;
+            margin-bottom: 10px;
+        }
+
+        /* Variable Figure Grid */
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(var(--columns, 3), 1fr); /* Default to 3 columns */
+            grid-template-rows: repeat(var(--rows, 2), auto); /* Default to 2 rows */
+            gap: 4px; /* Reduced from 10px */
+            margin: 10px 0;
+        }
+
+        .figure-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 5px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .figure-container:hover {
+            transform: scale(1.02);
+        }
+
+        .figure-container img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3; /* Maintain proportion for grid images */
+            object-fit: cover; /* Fully covers the frame without stretching */
+            border-radius: 4px;
+        }
+
+        .figure-container p {
+            font-size: 0.9em;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* General List Styling */
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        #contact p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        #contact a {
+            color: #2e4f3d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #2e4f3d;
+            color: #e8d5b5;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        /* Scrollbar Styling */
+        .news-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .news-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .news-container::-webkit-scrollbar-thumb {
+            background: #2e4f3d;
+            border-radius: 4px;
+        }
+
+        .news-container::-webkit-scrollbar-thumb:hover {
+            background: #1e3f2d;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #about {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .photo-frame {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .figure-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+                grid-template-rows: auto; /* Allow rows to adjust */
+            }
+
+            .figure-container img {
+                aspect-ratio: 4 / 3;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-frame {
+                max-width: 200px;
+            }
+
+            .figure-grid {
+                grid-template-columns: 1fr; /* 1 column on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#news">News and Updates</a></li>
+            <li><a href="#research">Research Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Work Experience</a></li>
+            <li><a href="#honors">Honors and Awards</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="photo-frame">
+            <!-- Replace the src with your photo URL -->
+            <img src="Img\1.jpg" alt="Md. Arafat Jamil">
+        </div>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>I am Md. Arafat Jamil, a dedicated professional in Building Engineering and Construction Management with a focus on construction safety, automation, and innovative technologies like BIM and IoT. My research and professional experience revolve around enhancing construction efficiency and safety through data-driven approaches.</p>
+            <p>With a B.Sc. from Khulna University of Engineering & Technology (KUET) and extensive experience as a Design Engineer, I am passionate about advancing the field through cutting-edge research and practical applications.</p>
+        </div>
+    </section>
+
+    <!-- News and Updates Section (Scrollable) -->
+    <section id="news">
+        <h2>News and Updates</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <span>January 2025</span>
+                <p>Presented a paper on BIM-based safety monitoring at an international conference.</p>
+            </div>
+            <div class="news-item">
+                <span>October 2024</span>
+                <p>Collaborated on a construction automation project with a U.S.-based research team.</p>
+            </div>
+            <div class="news-item">
+                <span>July 2024</span>
+                <p>Published a review paper on AI in construction management.</p>
+            </div>
+            <div class="news-item">
+                <span>March 2024</span>
+                <p>Awarded a grant for research on IoT applications in construction safety.</p>
+            </div>
+            <div class="news-item">
+                <span>November 2023</span>
+                <p>Joined a new project on smart building technologies.</p>
+            </div>
+            <div class="news-item">
+                <span>June 2023</span>
+                <p>Completed a workshop on construction safety regulations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Experience Section -->
+    <section id="research">
+        <h2>Research Experience</h2>
+        <div class="research-item">
+            <h3>BIM-Integrated Safety Monitoring System</h3>
+            <p><strong>Duration:</strong> January 2022 - December 2022</p>
+            <p><strong>Description:</strong> Developed a cloud-based system to monitor construction safety using BIM and GPS technologies. The system alerts personnel of potential hazards in real-time.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="2">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="System Architecture">
+                    <p><strong>Figure 1:</strong> System architecture diagram.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hazard Zone Mapping">
+                    <p><strong>Figure 2:</strong> Hazard zone mapping.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alert Interface">
+                    <p><strong>Figure 3:</strong> Real-time alert interface.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="GPS Integration">
+                    <p><strong>Figure 4:</strong> GPS integration setup.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Workflow">
+                    <p><strong>Figure 5:</strong> Safety alert workflow.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Setup">
+                    <p><strong>Figure 6:</strong> Cloud server setup.</p>
+                </div>
+            </div>
+        </div>
+        <div class="research-item">
+            <h3>Construction Safety in Confined Spaces</h3>
+            <p><strong>Duration:</strong> July 2021 - December 2021</p>
+            <p><strong>Description:</strong> Designed a sensor-based framework for monitoring air quality and worker safety in confined spaces using BIM integration.</p>
+            <!-- Example: 2x3 grid -->
+            <div class="figure-grid" data-columns="2" data-rows="3">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sensor Circuit">
+                    <p><strong>Figure 1:</strong> Sensor circuit diagram.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Monitoring Dashboard">
+                    <p><strong>Figure 2:</strong> Real-time monitoring dashboard.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sensor Placement">
+                    <p><strong>Figure 3:</strong> Air quality sensor placement.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="BIM Model">
+                    <p><strong>Figure 4:</strong> BIM model of confined space.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Protocol">
+                    <p><strong>Figure 5:</strong> Worker safety protocol.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Air Quality Chart">
+                    <p><strong>Figure 6:</strong> Air quality analysis chart.</p>
+                </div>
+            </div>
+        </div>
+        <div class="research-item">
+            <h3>Review of AI in Construction Management</h3>
+            <p><strong>Duration:</strong> January 2021 - June 2021</p>
+            <p><strong>Description:</strong> Conducted a comprehensive review of AI applications in construction management, focusing on automation and safety.</p>
+            <!-- Example: 4x2 grid -->
+            <div class="figure-grid" data-columns="4" data-rows="2">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Trends">
+                    <p><strong>Figure 1:</strong> AI adoption trends in construction.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Analysis Chart">
+                    <p><strong>Figure 2:</strong> Comparative analysis chart.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Workflow">
+                    <p><strong>Figure 3:</strong> AI workflow in construction.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Impact Analysis">
+                    <p><strong>Figure 4:</strong> Automation impact analysis.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Prediction Model">
+                    <p><strong>Figure 5:</strong> AI prediction model.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Stats">
+                    <p><strong>Figure 6:</strong> Safety enhancement stats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-item">
+            <h3>BIM-Based Building Code Compliance Checker</h3>
+            <p><strong>Year:</strong> 2023</p>
+            <p><strong>Description:</strong> Developed a web framework to automate building code compliance checks using BIM and IFC files.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="2">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1558403194-611308249627?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Interface">
+                    <p><strong>Figure 1:</strong> Web interface screenshot.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Workflow">
+                    <p><strong>Figure 2:</strong> Compliance check workflow.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IFC Integration">
+                    <p><strong>Figure 3:</strong> IFC file integration.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Report">
+                    <p><strong>Figure 4:</strong> Code compliance report.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="BIM Visualization">
+                    <p><strong>Figure 5:</strong> BIM model visualization.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Dashboard">
+                    <p><strong>Figure 6:</strong> Compliance dashboard.</p>
+                </div>
+            </div>
+        </div>
+        <div class="project-item">
+            <h3>Structural Health Monitoring Implementation</h3>
+            <p><strong>Year:</strong> 2020</p>
+            <p><strong>Description:</strong> Applied structural health monitoring tools to assess building safety and identify concrete cracks.</p>
+            <!-- Example: 2x3 grid -->
+            <div class="figure-grid" data-columns="2" data-rows="3">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crack Detection">
+                    <p><strong>Figure 1:</strong> Crack detection using ultrasonic pulse.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581093450021-1a90a6e8e17e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rebar Scanning">
+                    <p><strong>Figure 2:</strong> Rebar scanning results.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Health Dashboard">
+                    <p><strong>Figure 3:</strong> Structural health dashboard.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crack Analysis">
+                    <p><strong>Figure 4:</strong> Concrete crack analysis.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Testing Setup">
+                    <p><strong>Figure 5:</strong> Ultrasonic testing setup.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Integrity Report">
+                    <p><strong>Figure 6:</strong> Structural integrity report.</p>
+                </div>
+            </div>
+        </div>
+        <div class="project-item">
+            <h3>10-Story Residential Building Design</h3>
+            <p><strong>Year:</strong> 2019</p>
+            <p><strong>Description:</strong> Designed a 10-story residential building using ETABS, comparing manual and software-based lateral force calculations.</p>
+            <!-- Example: 4x2 grid -->
+            <div class="figure-grid" data-columns="4" data-rows="2">
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Design Model">
+                    <p><strong>Figure 1:</strong> Structural design model.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Force Chart">
+                    <p><strong>Figure 2:</strong> Lateral force comparison chart.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ETABS Output">
+                    <p><strong>Figure 3:</strong> ETABS simulation output.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elevation Model">
+                    <p><strong>Figure 4:</strong> Building elevation model.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Foundation Plan">
+                    <p><strong>Figure 5:</strong> Foundation design plan.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Load Analysis">
+                    <p><strong>Figure 6:</strong> Structural load analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>B.Sc. in Building Engineering and Construction Management</strong><br>
+        Khulna University of Engineering & Technology (KUET), Khulna, Bangladesh<br>
+        March 2020<br>
+        CGPA: 3.09 (out of 4.00)<br>
+        Thesis: "Augmentation of Self-Regulating Construction Safety Using Application of GPS and BIM Technology"</p>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work">
+        <h2>Work Experience</h2>
+        <p><strong>Design Engineer</strong><br>
+        Energypac Power Generation Ltd.<br>
+        May 2023 - Present<br>
+        - Analysis and design of building structures (steel and RCC) per building codes.<br>
+        - Conducted structural audits and prepared engineering assessment reports.<br>
+        - Coordinated with site teams to troubleshoot field issues.</p>
+        <p><strong>Structural Engineer</strong><br>
+        Sthapona Consultants<br>
+        December 2020 - April 2023<br>
+        - Worked on over 250 structures, including international projects (USA-based).<br>
+        - Designed and audited building structures while ensuring code compliance.</p>
+        <p><strong>Site Supervisor</strong><br>
+        Ahyan Real Estate Ltd.<br>
+        March 2020 - December 2020<br>
+        - Supervised construction of a B1+B2+G+26 storied five-star hotel building.<br>
+        - Oversaw sub-structural and super-structural works, including a 2-meter thick mat foundation.</p>
+    </section>
+
+    <!-- Honors and Awards Section -->
+    <section id="honors">
+        <h2>Honors and Awards</h2>
+        <ul>
+            <li>University Merit Scholarship (8 times), 2017-2020</li>
+            <li>Champion in Poster Presentation, BUILTECH FEST 4.0, 2018</li>
+            <li>Champion in Physics Wiz Challenge, Intra College Annual Sports, 2014</li>
+            <li>Education Scholarship by Bangladesh Army Welfare Trust, 2012-2020</li>
+        </ul>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <h2>Leadership</h2>
+        <ul>
+            <li>Tutored undergraduate students weekly during the last two years of my B.Sc.</li>
+            <li>Consulted students on design project courses and evaluated assignments.</li>
+            <li>Served as a lab demonstrator for lab-based courses at KUET.</li>
+            <li>Supervised undergraduate students during research assistantships (2019-2020).</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:jamil.becm5.kuet@gmail.com">jamil.becm5.kuet@gmail.com</a></p>
+        <p>Mobile: +8801828190461</p>
+        <p>Address: Arambag, Chapainawabgonj Sadar, Chapainawabgonj-6300, Bangladesh</p>
+    </section>
+
+    <!-- Footer with All Rights Reserved -->
+    <footer>
+        <p>© 2025 Md. Arafat Jamil. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scroll and Dynamic Grid -->
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 30,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic Figure Grid Setup
+        document.querySelectorAll('.figure-grid').forEach(grid => {
+            const columns = grid.getAttribute('data-columns') || 3; // Default to 3 columns
+            const rows = grid.getAttribute('data-rows') || 2; // Default to 2 rows
+            grid.style.setProperty('--columns', columns);
+            grid.style.setProperty('--rows', rows);
+        });
+    </script>
+</body>
+</html>
