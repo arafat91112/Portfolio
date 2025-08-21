@@ -197,7 +197,7 @@
             width: 100%;
             height: auto;
             aspect-ratio: 4 / 3; /* Maintain proportion for grid images */
-            object-fit: cover; /* Fully covers the frame without stretching */
+            object-fit: contain; /* Fully covers the frame without stretching */
             border-radius: 4px;
         }
 
@@ -262,6 +262,75 @@
             background: #1e3f2d;
         }
 
+        /* Quick Links Section */
+        #quick-links {
+            padding: 20px 0;
+            background-color: #f9f9f9;
+            margin: 20px 10% 0 10%; /* same horizontal padding as other sections */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+
+        .quick-links-container a {
+            display: block;
+            padding: 12px;
+            background: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #2e4f3d;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .quick-links-container a:hover {
+            background-color: #2e4f3d;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .reveal-btn {
+            display: block;
+            padding: 12px;
+            background: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #2e4f3d;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .reveal-btn:hover {
+            background-color: #2e4f3d;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        #email-address {
+            display: none; /* completely hidden until revealed */
+            padding: 12px;
+            font-weight: bold;
+            color: #2e4f3d;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             #about {
@@ -316,30 +385,58 @@
     <section id="about">
         <div class="photo-frame">
             <!-- Replace the src with your photo URL -->
-            <img src="Img\1.jpg" alt="Md. Arafat Jamil">
+            <img src="Img\1pp.jpg" alt="Md. Arafat Jamil">
         </div>
         <div class="about-text">
             <h2>About Me</h2>
-            <p>I am Md. Arafat Jamil, a dedicated professional in Building Engineering and Construction Management with a focus on construction safety, automation, and innovative technologies like BIM and IoT. My research and professional experience revolve around enhancing construction efficiency and safety through data-driven approaches.</p>
-            <p>With a B.Sc. from Khulna University of Engineering & Technology (KUET) and extensive experience as a Design Engineer, I am passionate about advancing the field through cutting-edge research and practical applications.</p>
+            <p>Hi, I am Md. Arafat Jamil, a professional in Building Engineering and Construction Management, specializing in construction safety, process automation, and the integration of advanced technologies such as BIM and the IoT. With a B.Sc. from Khulna University of Engineering & Technology (KUET), I leverage data-driven strategies, intelligent monitoring, and predictive analytics to enhance construction efficiency, safety, and sustainability. My work bridges research and practice, focusing on developing smart, resilient, and sustainable building solutions aligned with global standards.</p>
+            <p>In addition to construction engineering & management, I have strong expertise in structural engineering, including the design, analysis, and optimization of steel, composite, and reinforced concrete structures. As a Design Engineer, I apply finite element modeling, seismic hazard assessment, and performance-based design to deliver safe and sustainable outcomes. My research explores structural performance optimization, seismic resilience, sustainable materials, and IoT-enabled SHM, merging digital innovation with engineering excellence.</p>
         </div>
     </section>
+    <!-- Quick Links Section -->
+    <section id="quick-links">
+        <div class="quick-links-container">
+    
+            <!-- Email Button -->
+            <button id="reveal-email" class="reveal-btn">📧 Email</button>
+            <span id="email-address" class="hidden"></span>
+    
+            <!-- Other Links -->
+            <a href="Data/MD. ARAFAT JAMIL_ CV_F.pdf" target="_blank">📄 CV</a>
+            <a href="Data/Python and Matlab Certification.pdf" target="_blank">🎓 MATLAB, Python and ML Certifications & Accomplishments</a>
+            <a href="https://www.linkedin.com/in/m-a-jamil/" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("reveal-email").addEventListener("click", function() {
+            const emailSpan = document.getElementById("email-address");
+            emailSpan.textContent = "jamil.becm5.kuet@gmail.com";  // your email
+            emailSpan.style.display = "block"; // show it only after click
+            this.style.display = "none"; // hide button after reveal
+        });
+    </script>
+    
 
     <!-- News and Updates Section (Scrollable) -->
     <section id="news">
         <h2>News and Updates</h2>
         <div class="news-container">
             <div class="news-item">
-                <span>January 2025</span>
-                <p>Presented a paper on BIM-based safety monitoring at an international conference.</p>
+                <span>August 2025</span>
+                <p>Received my TOEFL score from ETS.</p>
+            </div>
+            <div class="news-item">
+                <span>August 2025</span>
+                <p>Submitted two conference paper at ICCESD 2026 | KUET.</p>
+            </div>
+            <div class="news-item">
+                <span>July 2025</span>
+                <p>Submitted a Journal paper  on Construction Safety at Engineering, Construction and Architectural Management.</p>
             </div>
             <div class="news-item">
                 <span>October 2024</span>
-                <p>Collaborated on a construction automation project with a U.S.-based research team.</p>
-            </div>
-            <div class="news-item">
-                <span>July 2024</span>
-                <p>Published a review paper on AI in construction management.</p>
+                <p>Collaborated on a construction automation project with a dynamic research team.</p>
             </div>
             <div class="news-item">
                 <span>March 2024</span>
@@ -350,8 +447,20 @@
                 <p>Joined a new project on smart building technologies.</p>
             </div>
             <div class="news-item">
-                <span>June 2023</span>
-                <p>Completed a workshop on construction safety regulations.</p>
+                <span>December 2022</span>
+                <p>Received my GRE score from ETS.</p>
+            </div>
+            <div class="news-item">
+                <span>March 2020</span>
+                <p>Completed my undergraduate degree from KUET.</p>
+            </div>
+            <div class="news-item">
+                <span>March 2019</span>
+                <p>Champion in Poster Presentation in BUILTECH FEST 3.0.</p>
+            </div>
+            <div class="news-item">
+                <span>Deccember 2018</span>
+                <p>Conference Paper on Promoting Deconstruction over Demolition: Insights from Dhaka City’s Residential Buildings. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=v8V7aK4AAAAJ&citation_for_view=v8V7aK4AAAAJ:u5HHmVD_uO8C" target="_blank">(Google Scholar Link)</a></p>
             </div>
         </div>
     </section>
@@ -361,34 +470,26 @@
         <h2>Research Experience</h2>
         <div class="research-item">
             <h3>BIM-Integrated Safety Monitoring System</h3>
-            <p><strong>Duration:</strong> January 2022 - December 2022</p>
+            <p><strong>Duration:</strong> January 2019 - December 2022</p>
             <p><strong>Description:</strong> Developed a cloud-based system to monitor construction safety using BIM and GPS technologies. The system alerts personnel of potential hazards in real-time.</p>
             <!-- 3x2 grid (default) -->
-            <div class="figure-grid" data-columns="3" data-rows="2">
+            <div class="figure-grid" data-columns="2" data-rows="2">
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="System Architecture">
-                    <p><strong>Figure 1:</strong> System architecture diagram.</p>
+                    <img src="Img/3.png" alt="System Architecture">
+                    <p><strong>Figure 1:</strong> Details of Web Interface.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hazard Zone Mapping">
-                    <p><strong>Figure 2:</strong> Hazard zone mapping.</p>
+                    <img src="Img/2.png" alt="Hazard Zone Mapping">
+                    <p><strong>Figure 2:</strong> Automated Detection and Data Collection.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alert Interface">
-                    <p><strong>Figure 3:</strong> Real-time alert interface.</p>
+                    <img src="Img/4.png" alt="Alert Interface">
+                    <p><strong>Figure 3:</strong> Monitored Result.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="GPS Integration">
-                    <p><strong>Figure 4:</strong> GPS integration setup.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Workflow">
-                    <p><strong>Figure 5:</strong> Safety alert workflow.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Setup">
-                    <p><strong>Figure 6:</strong> Cloud server setup.</p>
-                </div>
+                    <img src="Img/5.png" alt="GPS Integration">
+                    <p><strong>Figure 4:</strong> Safety Effectiveness.</p>
+                </div>                
             </div>
         </div>
         <div class="research-item">
@@ -396,163 +497,184 @@
             <p><strong>Duration:</strong> July 2021 - December 2021</p>
             <p><strong>Description:</strong> Designed a sensor-based framework for monitoring air quality and worker safety in confined spaces using BIM integration.</p>
             <!-- Example: 2x3 grid -->
-            <div class="figure-grid" data-columns="2" data-rows="3">
+            <div class="figure-grid" data-columns="3" data-rows="1">
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sensor Circuit">
-                    <p><strong>Figure 1:</strong> Sensor circuit diagram.</p>
+                    <img src="Img/6.jpg" alt="Sensor Circuit">
+                    <p><strong>Figure 1:</strong> Developed miniature model of a Confined Space</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Monitoring Dashboard">
-                    <p><strong>Figure 2:</strong> Real-time monitoring dashboard.</p>
+                    <img src="Img/7.jpg" alt="Monitoring Dashboard">
+                    <p><strong>Figure 2:</strong> Overall Sensor Circuit Frame with Power Source.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sensor Placement">
-                    <p><strong>Figure 3:</strong> Air quality sensor placement.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="BIM Model">
-                    <p><strong>Figure 4:</strong> BIM model of confined space.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Protocol">
-                    <p><strong>Figure 5:</strong> Worker safety protocol.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Air Quality Chart">
-                    <p><strong>Figure 6:</strong> Air quality analysis chart.</p>
+                    <img src="Img/8.PNG" alt="Sensor Placement">
+                    <p><strong>Figure 3:</strong> Web framework Monitoring Dashboard</p>
                 </div>
             </div>
         </div>
-        <div class="research-item">
-            <h3>Review of AI in Construction Management</h3>
-            <p><strong>Duration:</strong> January 2021 - June 2021</p>
-            <p><strong>Description:</strong> Conducted a comprehensive review of AI applications in construction management, focusing on automation and safety.</p>
-            <!-- Example: 4x2 grid -->
-            <div class="figure-grid" data-columns="4" data-rows="2">
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Trends">
-                    <p><strong>Figure 1:</strong> AI adoption trends in construction.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Analysis Chart">
-                    <p><strong>Figure 2:</strong> Comparative analysis chart.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Workflow">
-                    <p><strong>Figure 3:</strong> AI workflow in construction.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Impact Analysis">
-                    <p><strong>Figure 4:</strong> Automation impact analysis.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Prediction Model">
-                    <p><strong>Figure 5:</strong> AI prediction model.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Safety Stats">
-                    <p><strong>Figure 6:</strong> Safety enhancement stats.</p>
-                </div>
-            </div>
-        </div>
+        
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-item">
+            <h3>Autonomous Drone Swarm Mapping Using Sweep Patterns: Simulation and Performance Metrics</h3>
+            <p><strong>Year:</strong> March 2025</p>
+            <p><strong>Description:</strong> This project is significant because it demonstrates a controlled yet realistic simulation of swarm robotics for autonomous 3D mapping, complete with visualization, coordination logic, collision handling, and performance metrics. It’s a foundation for testing and developing advanced drone swarm navigation algorithms that can be applied in construction, robotics, and disaster response.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="2">
+                <div class="figure-container">
+                    <img src="Img/F1.1.png" alt="Simulation Steps">
+                    <p><strong>Figure 1:</strong> Simulation Time Steps.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/F2.1.png" alt="Coverage Efficiency">
+                    <p><strong>Figure 2:</strong> Coverage Efficiency over Time.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/F3.1.png" alt="Collision Avoidance">
+                    <p><strong>Figure 3:</strong> Collision Avoidance Success over Time.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/F4.1.png" alt="Path Efficiency">
+                    <p><strong>Figure 4:</strong> Path Efficiency per Drone.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/F7.1.png" alt="Mapped Volume & Free Spaces">
+                    <p><strong>Figure 5:</strong> Mapped Volume & Free Spaces.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/F8.png" alt="Drone Paths">
+                    <p><strong>Figure 6:</strong> Overall Simulated Drone Paths.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-item">
+            <h3>Machine Learning-Based Structural Health Monitoring for Construction Automation</h3>
+            <p><strong>Year:</strong>June 2025</p>
+            <p><strong>Description:</strong> This is a research-oriented SHM simulation project that illustrates how signal processing + machine learning can be applied to detect structural damage in real time. It provides a foundation for developing AI-driven SHM systems in construction automation, which can later be extended with real sensor networks, communication delays, energy constraints, and digital twin integration.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="2">
+                <div class="figure-container">
+                    <img src="Img/S1.png" alt="Healthy vs Damaged Vibration">
+                    <p><strong>Figure 1:</strong> Healthy vs Damaged Vibration.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/S2.png" alt="FFT Spectrum">
+                    <p><strong>Figure 2:</strong> FFT Spectrum.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/S3.png" alt="Wavelet Transform">
+                    <p><strong>Figure 3:</strong> Wavelet Transform.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/S4.png" alt="Time Comparison">
+                    <p><strong>Figure 4:</strong> Comparison of Computation Time.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/S5.png" alt="Accuracy Comparison">
+                    <p><strong>Figure 5:</strong> Comparison of Detection Accuracy.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="project-item">
             <h3>BIM-Based Building Code Compliance Checker</h3>
             <p><strong>Year:</strong> 2023</p>
             <p><strong>Description:</strong> Developed a web framework to automate building code compliance checks using BIM and IFC files.</p>
             <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="2" data-rows="2">
+                <div class="figure-container">
+                    <img src="Img/E1.jpg" alt="Overall Process">
+                    <p><strong>Figure 1:</strong> Overall Workflow Diagram.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/E2.png" alt="Retrieval of Data">
+                    <p><strong>Figure 2:</strong> Information Retrieval Process from IFC File (process shown for door).</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/E3.png" alt="IFC Data">
+                    <p><strong>Figure 3:</strong> Snap from IFC with Marking of Targated Information.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/E4.jpg" alt="Compliance Report">
+                    <p><strong>Figure 4:</strong> Code Compliance Report.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <h3>BIM-Integrated HVAC System Modeling in Autodesk Revit</h3>
+            <p><strong>Year:</strong> 2020</p>
+            <p><strong>Description:</strong> Demonstrating an HVAC system designed and coordinated in Autodesk Revit, featuring a 3D model that integrates ductwork, equipment, and mechanical components while maintaining accurate flow rates. The construction drawings provide precise dimensions, flow capacities, and device locations. Through interdisciplinary BIM collaboration and parametric workflows, the system ensures efficiency and minimizes on-site conflicts.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="1">
+                <div class="figure-container">
+                    <img src="Img/C1.png" alt="Snapshot">
+                </div>
+                <div class="figure-container">
+                    <img src="Img/C2.png" alt="Snapshot">
+                </div>
+                <div class="figure-container">
+                    <img src="Img/C3.png" alt="Snapshot">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="project-item">
+            <h3>BIM Clash Detection and Multidisciplinary Coordination in Navisworks</h3>
+            <p><strong>Year:</strong> 2020</p>
+            <p><strong>Description:</strong> This project showcases the application of Navisworks and Revit for clash detection and model coordination. Through the integration of architectural, structural, and MEP models, potential conflicts were detected early in the design stage, reducing construction errors. The 3D clash detection workflow enhanced project accuracy, streamlined coordination, and minimized costly rework.</p>
+            <!-- 3x2 grid (default) -->
+            <div class="figure-grid" data-columns="3" data-rows="1">
+                <div class="figure-container">
+                    <img src="Img/N0.png" alt="Snapshot">
+                    <p><strong>Figure 1:</strong> Snap from Revit Model.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/N1.png" alt="Snapshot">
+                    <p><strong>Figure 2:</strong> Sumilation of Construction Timeline.</p>
+                </div>
+                <div class="figure-container">
+                    <img src="Img/N2.png" alt="Snapshot">
+                    <p><strong>Figure 3:</strong> Detected Clash.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <h3>SHM: Non-Destructive Testing</h3>
+            <p><strong>Year:</strong> 2019</p>
+            <p><strong>Description:</strong> It was performed under the course named as "Sessional on Structural Health Monitoring". Details of a number of Non Destructive Test equipments were studied. Then the equipment were used to performed test on casted concrete cylinder and block.</p>
+            <!-- Example: 3x2 grid -->
             <div class="figure-grid" data-columns="3" data-rows="2">
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1558403194-611308249627?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Interface">
-                    <p><strong>Figure 1:</strong> Web interface screenshot.</p>
+                    <img src="Img/ST1.jpg" alt="Test Image">
+                    <p><strong>Figure 1:</strong> Detection of Column Rebar Location with Rebar Locator.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Workflow">
-                    <p><strong>Figure 2:</strong> Compliance check workflow.</p>
+                    <img src="Img/ST2.jpg" alt="Test Image">
+                    <p><strong>Figure 2:</strong> Testing Concrete Cylinder Strength with Rebound Hammer.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IFC Integration">
-                    <p><strong>Figure 3:</strong> IFC file integration.</p>
+                    <img src="Img/ST3.jpg" alt="Test Image">
+                    <p><strong>Figure 3:</strong> Tested Concrete Cylinder Strength shown in Rebound Hammer.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Report">
-                    <p><strong>Figure 4:</strong> Code compliance report.</p>
+                    <img src="Img/ST4.jpg" alt="Test Image">
+                    <p><strong>Figure 4:</strong> Performing Test with Ultrasonic Pulse Velocity.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="BIM Visualization">
-                    <p><strong>Figure 5:</strong> BIM model visualization.</p>
+                    <img src="Img/ST5.jpg" alt="Test Image">
+                    <p><strong>Figure 5:</strong> Measuring Length of the cylinder with UPV.</p>
                 </div>
                 <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Compliance Dashboard">
-                    <p><strong>Figure 6:</strong> Compliance dashboard.</p>
-                </div>
-            </div>
-        </div>
-        <div class="project-item">
-            <h3>Structural Health Monitoring Implementation</h3>
-            <p><strong>Year:</strong> 2020</p>
-            <p><strong>Description:</strong> Applied structural health monitoring tools to assess building safety and identify concrete cracks.</p>
-            <!-- Example: 2x3 grid -->
-            <div class="figure-grid" data-columns="2" data-rows="3">
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crack Detection">
-                    <p><strong>Figure 1:</strong> Crack detection using ultrasonic pulse.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581093450021-1a90a6e8e17e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rebar Scanning">
-                    <p><strong>Figure 2:</strong> Rebar scanning results.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Health Dashboard">
-                    <p><strong>Figure 3:</strong> Structural health dashboard.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crack Analysis">
-                    <p><strong>Figure 4:</strong> Concrete crack analysis.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Testing Setup">
-                    <p><strong>Figure 5:</strong> Ultrasonic testing setup.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Integrity Report">
-                    <p><strong>Figure 6:</strong> Structural integrity report.</p>
-                </div>
-            </div>
-        </div>
-        <div class="project-item">
-            <h3>10-Story Residential Building Design</h3>
-            <p><strong>Year:</strong> 2019</p>
-            <p><strong>Description:</strong> Designed a 10-story residential building using ETABS, comparing manual and software-based lateral force calculations.</p>
-            <!-- Example: 4x2 grid -->
-            <div class="figure-grid" data-columns="4" data-rows="2">
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1486406146923-c6832a105064?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Design Model">
-                    <p><strong>Figure 1:</strong> Structural design model.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1551288049-b1f991c24f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Force Chart">
-                    <p><strong>Figure 2:</strong> Lateral force comparison chart.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ETABS Output">
-                    <p><strong>Figure 3:</strong> ETABS simulation output.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elevation Model">
-                    <p><strong>Figure 4:</strong> Building elevation model.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Foundation Plan">
-                    <p><strong>Figure 5:</strong> Foundation design plan.</p>
-                </div>
-                <div class="figure-container">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Load Analysis">
-                    <p><strong>Figure 6:</strong> Structural load analysis.</p>
+                    <img src="Img/ST6.jpg" alt="Test Image">
+                    <p><strong>Figure 6:</strong> Measuring Crack Depth of the cylinder with UPV.</p>
                 </div>
             </div>
         </div>
@@ -571,7 +693,7 @@
     <!-- Work Experience Section -->
     <section id="work">
         <h2>Work Experience</h2>
-        <p><strong>Design Engineer</strong><br>
+        <p><strong>Sr. Design Engineer</strong><br>
         Energypac Power Generation Ltd.<br>
         May 2023 - Present<br>
         - Analysis and design of building structures (steel and RCC) per building codes.<br>
